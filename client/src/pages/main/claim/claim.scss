@@ -1,0 +1,91 @@
+@import "../../../globalStyles";
+
+
+
+.claim {
+    width: 100%;
+    padding: 0 150px*$vw;
+    padding-bottom: 110px*$vw;
+    position: relative;
+    margin: 100px*$vw 0;
+    position: relative;
+    
+    @include flex(flex, row, nowrap, space-between, center, unset);
+
+    a {
+        padding: 21px*$vw 90px*$vw;
+        background-color: #FFFFFF;
+        border-radius: 89px*$vw;
+        border: 2px solid #fff;
+        cursor: pointer;
+
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px*$vw;
+        line-height: 46px*$vw;
+        text-align: center;
+        text-transform: uppercase;
+        color: #890033;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: transparent;
+            border: 2px solid #890033;
+            color: #fff;
+        }
+    }
+}
+.claim_blur {
+    width: 110%;
+    height: 100%;
+    position: absolute;
+    left: -10%;
+    z-index: -1;
+
+    background-color: #EB266F;
+    filter: blur(91px*$vw);
+}
+.claim_title {
+    width: 432px*$vw;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 54px*$vw;
+    line-height: 82px*$vw;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .claim {
+        padding: 0 25px*$TELvw;
+        margin: 100px*$TELvw 0;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        a {
+            padding: 21px*$TELvw*0.4 90px*$TELvw*0.4;
+            border-radius: 89px*$TELvw*0.4;
+            border: 2px solid #fff;
+            font-size: 30px*$TELvw*0.4;
+            line-height: 46px*$TELvw*0.4;
+            margin: 20px*$vw;
+
+            &:hover {
+                border: 2px*$TELvw*0.4 solid #890033;
+            }
+        }
+    }
+    .claim_blur {
+        filter: blur(91px*$TELvw*0.5);
+    }
+    .claim_title {
+        width: 432px*$TELvw*0.4;
+        font-size: 54px*$TELvw*0.4;
+        line-height: 82px*$TELvw*0.4;
+        margin-bottom: 20px*$TELvw;
+    }
+}

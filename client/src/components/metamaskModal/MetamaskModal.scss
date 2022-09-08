@@ -1,0 +1,115 @@
+@import "../../globalStyles";
+
+
+
+.modal_window {
+    width: 747px*$vw;
+    height: 605px*$vw;
+    padding: 60px*$vw 67px*$vw 107px*$vw 67px*$vw;
+    background: #CEBAC1;
+    border-radius: 15px*$vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 111;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+
+    /* visibility: hidden;
+    opacity: 0; */
+
+    h3 {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px*$vw;
+        line-height: 46px*$vw;
+        color: #171C2C;
+        margin-bottom: 53px*$vw;
+    }
+}
+.modal_metamask {
+    width: 614px*$vw;
+    height: 339px*$vw;
+    background-color: #2C1D33;
+    border: 2.5px*$vw solid #EB266F;
+    border-radius: 20px*$vw;
+    cursor: pointer;
+
+    @include flex (flex, column, nowrap, flex-start, center, unset);
+}
+.modal_metamask_img {
+    width: 137px*$vw;
+    height: 126px*$vw;
+    margin: 91px*$vw 0 42px*$vw 0;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+.modal_metamask_text {
+    width: fit-content;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px*$vw;
+    line-height: 46px*$vw;
+    color: #FFFFFF;
+    margin-bottom: 34px*$vw;
+}
+.modal_close {
+    width: 18px*$vw;
+    height: 17px*$vw;
+    position: absolute;
+    right: 30px*$vw;
+    top: 30px*$vw;
+    cursor: pointer;
+
+    @include flex (flex, row, nowrap, center, center, unset);
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+    .modal_window {
+        width: 747px*$TELvw*0.4;
+        height: 605px*$TELvw*0.5;
+        padding: 60px*$TELvw*0.4 67px*$TELvw*0.4 107px*$TELvw*0.4 67px*$TELvw*0.4;
+        border-radius: 15px*$TELvw*0.4;
+
+        h3 {
+            font-size: 30px*$TELvw*0.7;
+            line-height: 46px*$TELvw*0.7;
+            margin-bottom: 53px*$TELvw*0.7;
+        }
+    }
+    .modal_metamask {
+        width: 614px*$TELvw*0.4;
+        height: auto;
+        border: 2.5px*$TELvw*0.4 solid #EB266F;
+        border-radius: 20px*$TELvw*0.4;
+    }
+    .modal_metamask_img {
+        width: 137px*$TELvw*0.5;
+        height: 126px*$TELvw*0.5;
+        margin: 91px*$TELvw*0.4 0 42px*$TELvw*0.4 0;
+    }
+    .modal_metamask_text {
+        font-size: 30px*$TELvw*0.7;
+        line-height: 46px*$TELvw*0.7;
+        margin-bottom: 34px*$TELvw*0.7;
+    }
+    .modal_close {
+        width: 18px*$TELvw*0.8;
+        height: 17px*$TELvw*0.8;
+        right: 30px*$TELvw*0.8;
+        top: 30px*$TELvw*0.8;
+    }
+}

@@ -1,0 +1,399 @@
+@import "../../globalStyles";
+
+
+
+.ClaimBcs {
+    width: 100%;
+    padding: 0 390px*$vw;
+    margin-bottom: 100px*$vw;
+
+    @include flex (flex, column, nowrap, flex-start, center, unset);
+
+    h1 {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 84px*$vw;
+        line-height: 128px*$vw;
+        color: #FFFFFF;
+        margin: 0;
+    }
+    
+}
+.ClaimBcs_payAddress {
+    width: 1142px*$vw;
+    height: 369px*$vw;
+    padding: 45px*$vw;
+    border: 1px*$vw solid #FFFFFF;
+    border-radius: 15px*$vw;
+
+    @include flex (flex, column, nowrap, flex-start, center, unset);
+}
+.ClaimBcs_payAddress_ {
+    width: 100%;
+    margin-bottom: 45px*$vw;
+
+    @include flex (flex, column, nowrap, flex-start, center, unset);
+}
+.ClaimBcs_payAddress_title {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px*$vw;
+    line-height: 46px*$vw;
+    color: #FFFFFF;
+    margin-bottom: 25px*$vw;
+}
+.ClaimBcs_payAddress_code {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px*$vw;
+    line-height: 46px*$vw;
+    color: #EE3B7E;
+}
+
+
+.wallet_form {
+    width: 1142px*$vw;
+    background: #181D2D;
+    border-radius: 15px*$vw;
+    padding: 100px*$vw 71px*$vw 63px*$vw 71px*$vw;
+    margin: 0 auto;
+    margin-bottom: 134px*$vw;
+
+    form {
+        @include flex (flex, column, nowrap, flex-start, center, unset);
+
+        button {
+            padding: 15px*$vw 188px*$vw;
+            gap: 10px*$vw;
+            background-color: #FFFFFF;
+            border-radius: 28px*$vw;
+            cursor: pointer;
+            border: none;
+            outline: none;
+
+            span {
+                font-family: 'Titillium Web';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 36px*$vw;
+                line-height: 55px*$vw;
+                letter-spacing: 0.17em;
+                background: linear-gradient(97.45deg, #B62D64 8.97%, #78717E 119.2%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+        }
+    }
+}
+.walletForm_input {
+    width: 100%;
+    position: relative;
+
+    &:first-child {
+        margin-bottom: 70px*$vw;
+    }
+    
+    input {
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 75px*$vw;
+        background: linear-gradient(90deg, #7A7C84 5.55%, #41393D 89.35%);
+        border-radius: 69px*$vw;
+        padding-right: 100px*$vw;
+
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px*$vw;
+        line-height: 46px*$vw;
+        text-align: right;
+        color: #C8C8C8;
+    }
+
+    span {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px*$vw;
+        line-height: 46px*$vw;
+        color: #C8C8C8;
+
+        position: absolute;
+        top: 50%;
+        transform: translate(10%, -50%);
+    }
+    .walletForm_input_img {
+        width: 47px*$vw;
+        height: 47px*$vw;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(-48%, -50%);
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.wallet_form_underInputsText {
+    width: 100%;
+    margin-top: 50px*$vw;
+    margin-bottom: 80px*$vw;
+    
+    @include flex (flex, row, nowrap, space-between, center, unset);
+
+    span {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px*$vw;
+        line-height: 46px*$vw;
+        color: #C8C8C8;
+    }
+    p {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px*$vw;
+        line-height: 46px*$vw;
+        color: #FFFFFF;
+    }
+}
+.walletForm_notify {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px*$vw;
+    line-height: 21px*$vw;
+    color: #FFFFFF;
+    margin-top: 16px*$vw;
+}
+
+.instructions {
+    width: 100%;
+    padding: 0 390px*$vw;
+
+    h2 {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 54px*$vw;
+        line-height: 82px*$vw;
+        color: #FFFFFF;
+        margin-bottom: 30px*$vw;
+    }
+    li {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px*$vw;
+        line-height: 46px*$vw;
+        color: #D9D9D9;
+    }
+}
+
+.bg {
+    width: 1500px*$vw;
+    height: 2200px*$vw;
+    position: absolute;
+    display: none;
+}
+.bg1 {
+    display: block;
+    top: -800px*$vw;
+    left: -150px*$vw;
+    z-index: -1;
+    transform: rotate(180deg);
+}
+.bg2 {
+    display: block;
+    top: -800px*$vw;
+    right: -150px*$vw;
+    z-index: -1;
+}
+.bg3 {
+    display: block;
+    top: 0;
+    left: -150px*$vw;
+    z-index: -1;
+    transform: rotate(180deg);
+}
+.bg4 {
+    display: block;
+    top: 0;
+    right: -150px*$vw;
+    z-index: -1;
+}
+
+
+
+
+
+
+@media screen and (max-width: 500px) {
+    .ClaimBcs {
+        padding: 0 20px*$TELvw;
+        margin-bottom: 100px*$TELvw*0.5;
+        margin-top: 100px*$TELvw*0.5;
+
+        h1 {
+            font-size: 84px*$TELvw*0.5;
+            line-height: 128px*$TELvw*0.5;
+        }
+    }
+    .ClaimBcs_payAddress {
+        width: 1142px*$TELvw*0.28;
+        height: auto;
+        padding: 45px*$TELvw*0.4;
+        border: 1px*$TELvw*0.4 solid #FFFFFF;
+        border-radius: 15px*$TELvw*0.4;
+    }
+    .ClaimBcs_payAddress_ {
+        width: 100%;
+        margin-bottom: 45px*$TELvw*0.4;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .ClaimBcs_payAddress_title {
+        font-size: 30px*$TELvw*0.4;
+        line-height: 46px*$TELvw*0.4;
+        margin-bottom: 25px*$TELvw*0.4;
+    }
+    .ClaimBcs_payAddress_code {
+        font-size: 30px*$TELvw*0.4;
+        line-height: 46px*$TELvw*0.4;
+    }
+
+
+    .wallet_form {
+        width: 90%;
+        border-radius: 15px*$TELvw;
+        padding: 30px*$TELvw 15px*$TELvw 20px*$TELvw 15px*$TELvw;
+        margin-bottom: 80px*$TELvw;
+
+        form {
+
+            button {
+                padding: 15px*$TELvw*0.3 188px*$TELvw*0.3;
+                gap: 10px*$TELvw*0.3;
+                border-radius: 28px*$TELvw*0.3;
+
+                span {
+                    font-size: 36px*$TELvw*0.3;
+                    line-height: 55px*$TELvw*0.3;
+                }
+            }
+        }
+    }
+    .walletForm_input {
+        width: 100%;
+        position: relative;
+
+        &:first-child {
+            margin-bottom: 70px*$TELvw*0.5;
+        }
+        
+        input {
+            height: 75px*$TELvw*0.5;
+            border-radius: 69px*$TELvw*0.5;
+            padding-right: 100px*$TELvw*0.5;
+
+            font-size: 30px*$TELvw*0.5;
+            line-height: 46px*$TELvw*0.5;
+        }
+
+        span {
+            font-size: 30px*$TELvw*0.5;
+            line-height: 46px*$TELvw*0.5;
+        }
+
+        .walletForm_input_img {
+            width: 47px*$TELvw*0.5;
+            height: 47px*$TELvw*0.5;
+        }
+    }
+
+    .wallet_form_underInputsText {
+        margin-top: 50px*$TELvw*0.5;
+        margin-bottom: 80px*$TELvw*0.5;
+
+        span {
+            font-size: 30px*$TELvw*0.5;
+            line-height: 46px*$TELvw*0.5;
+        }
+        p {
+            font-size: 30px*$TELvw*0.5;
+            line-height: 46px*$TELvw*0.5;
+        }
+    }
+    .walletForm_notify {
+        width: 70%;
+        font-size: 14px*$TELvw*0.6;
+        line-height: 21px*$TELvw*0.6;
+        margin-top: 16px*$TELvw*0.6;
+    }
+
+    .instructions {
+        width: 100%;
+        padding: 0 50px*$TELvw;
+
+        h2 {
+            font-size: 54px*$TELvw*0.5;
+            line-height: 82px*$TELvw*0.5;
+            margin-bottom: 30px*$TELvw*0.5;
+        }
+        li {
+            font-size: 30px*$TELvw*0.5;
+            line-height: 46px*$TELvw*0.5;
+        }
+    }
+
+
+    .bg {
+        width: 100vw;
+        height: 2200px*$TELvw*0.4;
+        position: absolute;
+        display: none;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .bg1 {
+        display: block;
+        top: -800px*$TELvw*0.4;
+        left: 0px*$TELvw*0.4;
+        z-index: -1;
+        transform: rotate(180deg);
+    }
+    .bg2 {
+        display: block;
+        top: -800px*$TELvw*0.4;
+        right: 0px*$TELvw*0.4;
+        z-index: -1;
+    }
+    .bg3 {
+        display: block;
+        top: unset;
+        left: 0px*$TELvw*0.4;
+        z-index: -1;
+        transform: rotate(180deg);
+    }
+    .bg4 {
+        display: block;
+        top: unset;
+        right: 0px*$TELvw*0.4;
+        z-index: -1;
+    }
+}

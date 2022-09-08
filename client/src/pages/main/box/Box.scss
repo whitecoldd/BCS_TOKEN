@@ -1,0 +1,236 @@
+@import "../../../globalStyles";
+
+
+
+
+.Box {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 300px*$vw;
+    margin-bottom: 250px*$vw;
+    padding: 0 150px*$vw;
+
+    @include flex(flex, column, nowrap, flex-start, center, unset);
+}
+.box_wrapper {
+    width: 100%;
+    margin-bottom: 80px*$vw;
+
+    @include flex(flex, row, nowrap, space-between, flex-start, unset);
+}
+
+.box_left,
+.box_right {
+    width: 371.32px*$vw;
+    height: 341px*$vw;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+.box_right {
+    position: relative;
+    bottom: -100px*$vw;
+}
+.box_center {
+    width: 729px*$vw;
+
+    @include flex(flex, column, nowrap, flex-start, center, unset);
+
+    p {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px*$vw;
+        line-height: 37px*$vw;
+        text-align: center;
+        color: #C6C6C6;
+    }
+}
+.box_title {
+    margin-bottom: 20px*$vw;
+}
+.box_inside_title {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 54px*$vw;
+    line-height: 82px*$vw;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 55px*$vw;
+
+    @include flex(flex, row, nowrap, flex-start, center, unset);
+
+    span {
+        color: #EB2670;
+    }
+    b {
+        width: 50px*$vw;
+        height: 50px*$vw;
+        margin-right: 20px*$vw;
+
+        @include flex(flex, row, nowrap, center, center, unset);
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+
+.inside_wrapper {
+    width: 100%;
+
+    @include flex(flex, column, wrap, flex-start, center, unset);
+
+    .list {
+        width: 1300px*$vw;
+
+        @include flex(flex, row, wrap, center, flex-start, unset);
+        gap: 100px*$vw;
+    }
+}
+.box_inside_list {
+    width: fit-content;
+    /* margin: 0 auto; */
+
+    @include flex(flex, column, nowrap, flex-start, flex-start, unset);
+    gap: 27px*$vw;
+
+    li {
+        width: 100%;
+
+        @include flex(flex, row, nowrap, flex-start, flex-start, unset);
+
+        span {        
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 36px*$vw;
+            line-height: 55px*$vw;
+            text-transform: capitalize;
+            color: #FFFFFF;
+            margin-left: 12px*$vw;
+        }
+
+        div {
+            width: 13px*$vw;
+            height: 18px*$vw;
+            margin-top: 20px*$vw;
+
+            svg {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 500px) {
+    .Box {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 300px*$vw;
+        margin-bottom: 250px*$vw;
+        padding: 0 150px*$vw;
+
+        @include flex(flex, column, nowrap, flex-start, center, unset);
+    }
+    .box_wrapper {
+        width: 100%;
+        margin-bottom: 80px*$TELvw;
+        position: relative;
+
+        @include flex(flex, column, nowrap, flex-start, center, unset);
+    }
+
+    .box_left,
+    .box_right {
+        width: 371.32px*$TELvw*0.5;
+        height: 341px*$TELvw*0.5;
+        position: absolute;
+        z-index: -1;
+        opacity: 0.3;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .box_left {
+        position: absolute;
+        left: -32px*$TELvw;
+        bottom: 200px*$vw;
+    }
+    .box_right {
+        position: absolute;
+        right: -32px*$TELvw;
+        bottom: -400px*$vw;
+    }
+    .box_center {
+        width: 90%;
+
+        p {
+            font-size: 24px*$TELvw*0.6;
+            line-height: 37px*$TELvw*0.6;
+        }
+    }
+    .box_title {
+        margin-bottom: 20px*$vw;
+    }
+    .box_inside_title {
+        font-size: 54px*$TELvw*0.5;
+        line-height: 82px*$TELvw*0.5;
+        margin-bottom: 55px*$TELvw*0.5;
+
+        b {
+            width: 50px*$vw;
+            height: 50px*$vw;
+            margin-right: 20px*$vw;
+        }
+    }
+
+
+    .inside_wrapper {
+        width: 100%;
+
+        .list {
+            width: 100%;
+
+            @include flex(flex, row, wrap, flex-start, flex-start, unset);
+            gap: 100px*$vw;
+        }
+    }
+    .box_inside_list {
+        width: fit-content;
+
+        gap: 27px*$vw;
+
+        li {
+
+            span {        
+                font-size: 36px*$TELvw*0.5;
+                line-height: 55px*$TELvw*0.5;
+                margin-left: 12px*$TELvw*0.5;
+            }
+
+            div {
+                width: 13px*$TELvw*0.5;
+                height: 18px*$TELvw*0.5;
+                margin-top: 20px*$TELvw*0.5;
+            }
+        }
+    }
+}

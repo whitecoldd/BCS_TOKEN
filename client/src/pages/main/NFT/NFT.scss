@@ -1,0 +1,384 @@
+@import "../../../globalStyles";
+
+
+
+.NFT {
+    width: 100%;
+    padding: 0 150px*$vw;
+
+    @include flex(flex, row, nowrap, space-between, center, unset);
+}
+
+.NFT_left {
+    width: 800px*$vw;
+
+    @include flex(flex, column, nowrap, flex-start, center, unset);
+}
+
+.NFT_left_header {
+    width: 100%;
+    margin-bottom: 60px*$vw;
+
+    @include flex(flex, column, nowrap, flex-start, center, unset);
+
+    p {
+        width: 750px*$vw;
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px*$vw;
+        line-height: 37px*$vw;
+        text-align: center;
+        color: #C6C6C6;
+    }
+}
+
+.NFT_left_header_title {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 54px*$vw;
+    line-height: 82px*$vw;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 55px*$vw;
+
+    @include flex(flex, row, nowrap, flex-start, center, unset);
+
+    span {
+        color: #EB2670;
+    }
+    b {
+        width: 50px*$vw;
+        height: 50px*$vw;
+        margin-right: 20px*$vw;
+
+        @include flex(flex, row, nowrap, center, center, unset);
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+
+.NFT_left_content {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+
+    @include flex(flex, row, wrap, center, flex-start, unset);
+}
+
+.NFT_card {
+    width: 340px*$vw;
+    height: 450px*$vw;
+    background: url("../../../assets/img/nftCard_bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 101% 101%;
+    border: 2px*$vw solid #FFFFFF;
+    border-radius: 42px*$vw;
+    position: relative;
+    overflow: hidden;
+
+    @include flex(flex, column, nowrap, space-between, center, unset);
+
+    &:first-child {
+        transform: rotate(-15deg);
+        position: absolute;
+        left: 0;
+        top: 42px*$vw;
+    }
+    &:last-child {
+        transform: rotate(15deg);
+        position: absolute;
+        right: 0;
+        top: 42px*$vw;
+        z-index: -1;
+
+        /* &:hover {
+            z-index: 10;
+        } */
+    }
+    /* &:hover {
+        z-index: 10;
+    } */
+}
+.NFT_card_img {
+    width: 85%;
+    height: 251px*$vw;
+    margin-top: 21px*$vw;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+.NFT_card_desc {
+    width: 100%;
+    min-height: 150px*$vw;
+    position: relative;
+    z-index: 20;
+    padding: 13px*$vw;
+
+    @include flex(flex, column, nowrap, flex-start, center, unset);
+
+    .NFT_card_bg {
+        width: 100%;
+        height: 214px*$vw;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .name {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 29px*$vw;
+        line-height: 44px*$vw;
+        color: #E2E2E2;
+        margin-top: 30px*$vw;
+    }
+}
+.NFT_card_row {
+    width: 100%;
+
+    @include flex(flex, row, nowrap, space-between, center, unset);
+
+    .right {
+        display: flex;
+        align-items: center;
+
+        .right_bcs {
+            width: 33px*$vw;
+            height: 33px*$vw;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        span {
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 24px*$vw;
+            line-height: 37px*$vw;
+            color: #E2E2E2;
+        }
+    }
+    .left {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px*$vw;
+        line-height: 30px*$vw;
+        color: #E2E2E2;
+    }
+}
+
+
+
+.NFT_right {
+    width: 520px*$vw;
+}
+
+.NFT_right_list {
+    @include flex(flex, column, nowrap,flex-start,flex-start, unset);
+
+    margin-left: 50px*$vw;
+
+    li {
+        width: 100%;
+
+        @include flex(flex, row, nowrap, flex-start, flex-start, unset);
+
+        span {        
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 36px*$vw;
+            line-height: 55px*$vw;
+            text-transform: capitalize;
+            color: #FFFFFF;
+            margin-left: 12px*$vw;
+        }
+
+        div {
+            width: 13px*$vw;
+            height: 18px*$vw;
+            margin-top: 20px*$vw;
+
+            svg {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 500px) {
+
+    .NFT {
+        width: 100%;
+        padding: 0 15px*$TELvw;
+
+        @include flex(flex, column, nowrap, flex-start, center, unset);
+    }
+
+    .NFT_left {
+        width: 100%;
+        margin-bottom: 80px*$TELvw;
+
+        @include flex(flex, column, nowrap, flex-start, center, unset);
+    }
+
+    .NFT_left_header {
+        width: 100%;
+        margin-bottom: 30px*$TELvw;
+
+        @include flex(flex, column, nowrap, flex-start, center, unset);
+
+        p {
+            width: 90%;
+            font-size: 24px*$TELvw*0.5;
+            line-height: 37px*$TELvw*0.5;
+        }
+    }
+
+    .NFT_left_header_title {
+        font-size: 54px*$TELvw*0.5;
+        line-height: 82px*$TELvw*0.5;
+        margin-bottom: 55px*$TELvw*0.5;
+
+        b {
+            width: 50px*$TELvw*0.5;
+            height: 50px*$TELvw*0.5;
+            margin-right: 20px*$TELvw*0.5;
+        }
+    }
+
+
+    /* .NFT_left_content {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+
+        @include flex(flex, row, wrap, center, flex-start, unset);
+    } */
+
+    .NFT_card {
+        width: 340px*$TELvw*0.35;
+        height: 450px*$TELvw*0.35;
+        border: 2px*$TELvw*0.35 solid #FFFFFF;
+        border-radius: 42px*$TELvw*0.35;
+
+        &:first-child {
+            transform: rotate(-15deg);
+            position: absolute;
+            left: 25px*$TELvw;
+            top: 42px*$vw;
+        }
+        &:last-child {
+            transform: rotate(15deg);
+            position: absolute;
+            right: 25px*$TELvw;
+            top: 42px*$vw;
+            z-index: -1;
+
+            /* &:hover {
+                z-index: 10;
+            } */
+        }
+        /* &:hover {
+            z-index: 10;
+        } */
+    }
+    .NFT_card_img {
+        width: 85%;
+        height: 251px*$TELvw*0.35;
+        margin-top: 21px*$TELvw*0.35;
+    }
+    .NFT_card_desc {
+        width: 100%;
+        min-height: 150px*$TELvw*0.35;
+        padding: 13px*$TELvw*0.35;
+
+        .NFT_card_bg {
+            width: 100%;
+            height: 214px*$TELvw*0.35;
+        }
+        .name {
+            font-size: 29px*$TELvw*0.35;
+            line-height: 44px*$TELvw*0.35;
+            margin-top: 30px*$TELvw*0.35;
+        }
+    }
+    .NFT_card_row {
+
+        .right {
+
+            .right_bcs {
+                width: 33px*$TELvw*0.35;
+                height: 33px*$TELvw*0.35;
+            }
+
+            span {
+                font-size: 24px*$TELvw*0.35;
+                line-height: 37px*$TELvw*0.35;
+            }
+        }
+        .left {
+            font-size: 20px*$TELvw*0.35;
+            line-height: 30px*$TELvw*0.35;
+        }
+    }
+
+
+
+    .NFT_right {
+        width: 90%;
+    }
+
+    .NFT_right_list {
+        @include flex(flex, column, nowrap,flex-start,flex-start, unset);
+
+        margin-left: 50px*$vw;
+
+        li {
+
+            span {        
+                font-size: 36px*$TELvw*0.5;
+                line-height: 55px*$TELvw*0.5;
+                margin-left: 12px*$TELvw*0.5;
+            }
+
+            div {
+                width: 13px*$TELvw*0.5;
+                height: 18px*$TELvw*0.5;
+                margin-top: 20px*$TELvw*0.35;
+            }
+        }
+    }
+}

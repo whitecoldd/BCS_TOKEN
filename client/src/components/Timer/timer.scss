@@ -1,0 +1,38 @@
+@import "../../globalStyles";
+
+
+
+.ClaimBcs_subtitle {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px*$vw;
+    line-height: 46px*$vw;
+    color: #FFFFFF;
+}
+.timer__items {
+    @include flex (flex, row, nowrap, flex-start, center, unset);
+}
+.ClaimBcs_sub_text {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px*$vw;
+    line-height: 30px*$vw;
+    color: #BEBEBE;
+    margin-bottom: 50px*$vw;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .ClaimBcs_subtitle {
+        font-size: 30px*$TELvw*0.5;
+        line-height: 46px*$TELvw*0.5;
+    }
+    .ClaimBcs_sub_text {
+        font-size: 20px*$TELvw*0.5;
+        line-height: 30px*$TELvw*0.5;
+        margin-bottom: 50px*$TELvw*0.5;
+    }
+}

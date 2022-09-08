@@ -1,0 +1,22 @@
+$width: 1920px;
+$mobileWidth: 360px;
+$tabWidth: 501px;
+
+$vw: 1/$width*100vw;
+$TELvw: 1/$mobileWidth*100vw;
+$TABvw: 1/$tabWidth*100vw;
+
+/* $LPTPvw: 1/960px*$width/$width*100vw;
+$TBLTvw: 1/768px*$width/$width*100vw; */
+$telBP: 500px;
+$tabBP: 1024px;
+
+
+@mixin flex ($display, $direction, $wrap, $justify, $lignI, $alignC) {
+    display: $display;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $lignI;
+    align-content: $alignC;
+}
