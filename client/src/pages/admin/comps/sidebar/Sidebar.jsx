@@ -51,14 +51,48 @@ const Sidebar = ({pathname, url}) => {
               <span>Article</span>
             </li>
           </Link>
-          <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
-          </li>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
+          <Link to={`main`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Main</span>
+            </li>
+          </Link>
+          <Link to={`stats`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Statistcs</span>
+            </li>
+          </Link>
+          <Link to={`plan`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Plan</span>
+            </li>
+          </Link>
+          <Link to={`buy`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Buy Field</span>
+            </li>
+          </Link>
+          <Link to={`meta`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Meta Miner</span>
+            </li>
+          </Link>
+          <Link to={`road`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Road Map</span>
+            </li>
+          </Link>
+          <Link to={`nft`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>NFT</span>
+            </li>
+          </Link>
           <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
