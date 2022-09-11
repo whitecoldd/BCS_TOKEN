@@ -2,8 +2,8 @@ import { Link, useLocation } from "react-router-dom";
 import "../../styles1.css";
 import PublishIcon from "@mui/icons-material/Publish";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import { getStatistic, updateStatistic } from "../../../../redux/apiCalls";
+import { useEffect, useMemo, useState } from "react";
+import { updateBox } from "../../../../redux/apiCalls";
 import { ToastContainer, toast } from "react-toastify";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import app from "../../../../firebase";
@@ -13,16 +13,14 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-export default function MyStatistics() {
+export default function MyBox() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    getStatistic(dispatch);
-  }, [dispatch]);
+  const location = useLocation();
+  const productId = location.pathname.split("/")[3];
 
-  //getHeader(dispatch);
-  const productId = useSelector((state) => state.statistic.statistics[0]._id);
-
-  const product = useSelector((state) => state.statistic.statistics[0]);
+  const product = useSelector((state) =>
+    state.box.boxes.find((product) => product._id === productId)
+  );
   if (typeof window !== "undefined") {
     injectStyle();
   }
@@ -34,6 +32,9 @@ export default function MyStatistics() {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
+  };
+  const handleCat = (e) => {
+    setCat(e.target.value.split(","));
   };
   const handleClick = (e) => {
     e.preventDefault();
@@ -68,9 +69,9 @@ export default function MyStatistics() {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log({ ...inputs, img: downloadURL });
-          const product = { ...inputs, img: downloadURL };
-          updateStatistic(productId, product, dispatch);
+          console.log({ ...inputs, icon: downloadURL });
+          const product = { ...inputs, icon: downloadURL };
+          updateBox(productId, product, dispatch);
           toast("Product updated!");
         });
       }
@@ -79,58 +80,61 @@ export default function MyStatistics() {
 
   return (
     <div className="product">
-      <div className="productTopRight">
-        <div className="productInfoTop">
-          <img src={product.img} alt="" className="productInfoImg" />
-        </div>
-        <div className="productInfoBottom">
-          <div className="productInfoItem">
-            <span className="productInfoKey">id:</span>
-            <span className="productInfoValue">{product._id}</span>
+      <div className="productTop">
+        <div className="productTopRight">
+          <div className="productInfoTop">
+            <img src={product.icon} alt="" className="productInfoImg" />
+            <span className="productName">{product.header}</span>
           </div>
-          <div className="productInfoItem">
-            <span className="productInfoKey">header</span>
-            <span className="productInfoValue">{product.header}</span>
-          </div>
-          <div className="productInfoItem">
-            <span className="productInfoKey">text</span>
-            <span className="productInfoValue">{product.text}</span>
+          <div className="productInfoBottom">
+            <div className="productInfoItem">
+              <span className="productInfoKey">id:</span>
+              <span className="productInfoValue">{product._id}</span>
+            </div>
+            <div className="productInfoItem">
+              <span className="productInfoKey">text:</span>
+              <span className="productInfoValue">{product.text}</span>
+            </div>
           </div>
         </div>
       </div>
-
       <div className="productBottom">
         <div className="productTitleContainer">
-          <h1 className="productTitle">Statistics Upper</h1>
+          <h1 className="productTitle">Box</h1>
         </div>
         <form className="productForm">
-          <div className="addProductItem">
-            <label>Graph</label>
+          <div className="productFormLeft">
+            <label>Box Header</label>
             <input
-              type="file"
-              id="file"
-              onChange={(e) => setFile(e.target.files[0])}
-            />
-          </div>
-          <div className="addProductItem">
-            <label>Header</label>
-            <input
+              type="text"
               name="header"
-              type="text"
-              placeholder="text"
+              value={inputs.header}
               onChange={handleChange}
             />
           </div>
-          <div className="addProductItem">
-            <label>Text</label>
+          <div className="productFormLeft">
+            <label>Box Text</label>
             <textarea
-              name="text"
               type="text"
-              placeholder="text"
+              name="text"
+              size="700"
+              value={inputs.text}
               onChange={handleChange}
             />
           </div>
-          <div className="productFormRight">
+          <div className="productFormRight" style={{marginTop: "20px"}}>
+            <div className="productUpload">
+              <img src={product.icon} alt="" className="productUploadImg" />
+              <label for="file">
+                <PublishIcon />
+              </label>
+              <input
+                type="file"
+                id="file"
+                style={{ display: "none" }}
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+            </div>
             <button onClick={handleClick} className="productButton">
               Update
             </button>

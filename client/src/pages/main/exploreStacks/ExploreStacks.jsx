@@ -19,9 +19,7 @@ export default function ExploreStacks() {
   return (
     <div className="exploreStacks">
       <h3 className="exploreStacks_title">{items[0]?.header}</h3>
-      <p className="subtitle">
-        {items[0]?.text}
-      </p>
+      <p className="subtitle">{items[0]?.text}</p>
 
       <div className="exploreStacks_items">
         <div className="exploreStacks_logo">
@@ -29,18 +27,18 @@ export default function ExploreStacks() {
         </div>
 
         <div className="exploreStacks_item">
-          <h4>Maps</h4>
-          <p>Each map has a frozen number of tokens.</p>
+          <h4>{items[0]?.boxheader1}</h4>
+          <p>{items[0]?.boxtext1}</p>
           <img src={explore_dot} alt="" />
         </div>
         <div className="exploreStacks_item">
-          <h4>Characteristics</h4>
-          <p>Improve the characteristics of your personage.</p>
+          <h4>{items[0]?.boxheader2}</h4>
+          <p>{items[0]?.boxtext2}</p>
           <img src={explore_dot} alt="" />
         </div>
         <div className="exploreStacks_item">
-          <h4>Tools</h4>
-          <p>Get new tools and increase your token production.</p>
+          <h4>{items[0]?.boxheader3}</h4>
+          <p>{items[0]?.boxtext3}</p>
           <img src={explore_dot} alt="" />
         </div>
       </div>

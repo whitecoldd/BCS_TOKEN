@@ -131,6 +131,48 @@ import {
   addRoadMapStart,
   addRoadMapSuccess,
 } from "./roadMapRedux";
+import {
+  getBoxFailure,
+  getBoxStart,
+  getBoxSuccess,
+  deleteBoxFailure,
+  deleteBoxStart,
+  deleteBoxSuccess,
+  updateBoxFailure,
+  updateBoxStart,
+  updateBoxSuccess,
+  addBoxFailure,
+  addBoxStart,
+  addBoxSuccess,
+} from "./boxRedux";
+import {
+  getVirtualBoxFailure,
+  getVirtualBoxStart,
+  getVirtualBoxSuccess,
+  deleteVirtualBoxFailure,
+  deleteVirtualBoxStart,
+  deleteVirtualBoxSuccess,
+  updateVirtualBoxFailure,
+  updateVirtualBoxStart,
+  updateVirtualBoxSuccess,
+  addVirtualBoxFailure,
+  addVirtualBoxStart,
+  addVirtualBoxSuccess,
+} from "./virtualBoxRedux";
+import {
+  getWiiFailure,
+  getWiiStart,
+  getWiiSuccess,
+  deleteWiiFailure,
+  deleteWiiStart,
+  deleteWiiSuccess,
+  updateWiiFailure,
+  updateWiiStart,
+  updateWiiSuccess,
+  addWiiFailure,
+  addWiiStart,
+  addWiiSuccess,
+} from "./wiiRedux";
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -490,5 +532,119 @@ export const addRoadMap = async (roadMap, dispatch) => {
     dispatch(addRoadMapSuccess(res.data));
   } catch (err) {
     dispatch(addRoadMapFailure());
+  }
+};
+export const getBox = async (dispatch) => {
+  dispatch(getBoxStart());
+  try {
+    const res = await publicRequest.get("api/box/find");
+    dispatch(getBoxSuccess(res.data));
+  } catch (err) {
+    dispatch(getBoxFailure());
+  }
+};
+
+export const deleteBox = async (id, dispatch) => {
+  dispatch(deleteBoxStart());
+  try {
+    const res = await userRequest.delete(`api/box/${id}`);
+    dispatch(deleteBoxSuccess(id));
+  } catch (err) {
+    dispatch(deleteBoxFailure());
+  }
+};
+
+export const updateBox = async (id, box, dispatch) => {
+  dispatch(updateBoxStart());
+  try {
+    const res = await userRequest.put(`api/box/${id}`, box);
+    dispatch(updateBoxSuccess({ id, box }));
+  } catch (err) {
+    dispatch(updateBoxFailure());
+  }
+};
+export const addBox = async (box, dispatch) => {
+  dispatch(addBoxStart());
+  try {
+    const res = await userRequest.post(`api/box`, box);
+    dispatch(addBoxSuccess(res.data));
+  } catch (err) {
+    dispatch(addBoxFailure());
+  }
+};
+export const getVirtualBox = async (dispatch) => {
+  dispatch(getVirtualBoxStart());
+  try {
+    const res = await publicRequest.get("api/virtualBox/find");
+    dispatch(getVirtualBoxSuccess(res.data));
+  } catch (err) {
+    dispatch(getVirtualBoxFailure());
+  }
+};
+
+export const deleteVirtualBox = async (id, dispatch) => {
+  dispatch(deleteVirtualBoxStart());
+  try {
+    const res = await userRequest.delete(`api/virtualBox/${id}`);
+    dispatch(deleteVirtualBoxSuccess(id));
+  } catch (err) {
+    dispatch(deleteVirtualBoxFailure());
+  }
+};
+
+export const updateVirtualBox = async (id, virtualBox, dispatch) => {
+  dispatch(updateVirtualBoxStart());
+  try {
+    const res = await userRequest.put(`api/virtualBox/${id}`, virtualBox);
+    dispatch(updateVirtualBoxSuccess({ id, virtualBox }));
+  } catch (err) {
+    dispatch(updateVirtualBoxFailure());
+  }
+};
+export const addVirtualBox = async (virtualBox, dispatch) => {
+  dispatch(addVirtualBoxStart());
+  try {
+    const res = await userRequest.post(`api/virtualBox`, virtualBox);
+    dispatch(addVirtualBoxSuccess(res.data));
+  } catch (err) {
+    dispatch(addVirtualBoxFailure());
+  }
+};
+export const getWii = async (dispatch) => {
+  dispatch(getWiiStart());
+  try {
+    const res = await publicRequest.get("api/wii/find");
+    dispatch(getWiiSuccess(res.data));
+  } catch (err) {
+    dispatch(getWiiFailure());
+  }
+};
+
+export const deleteWii = async (id, dispatch) => {
+  dispatch(deleteWiiStart());
+  try {
+    const res = await userRequest.delete(`api/wii/${id}`);
+    dispatch(deleteWiiSuccess(id));
+  } catch (err) {
+    dispatch(deleteWiiFailure());
+  }
+};
+
+export const updateWii = async (id, wii, dispatch) => {
+  dispatch(updateWiiStart());
+  try {
+    const res = await userRequest.put(`api/wii/${id}`, wii);
+    dispatch(updateWiiSuccess({ id, wii }));
+  } catch (err) {
+    dispatch(updateWiiFailure());
+  }
+};
+export const addWii = async (wii, dispatch) => {
+  dispatch(addWiiStart());
+  try {
+    const res = await userRequest.post(`api/wii`, wii);
+    dispatch(addWiiSuccess(res.data));
+  } catch (err) {
+    dispatch(addWiiFailure());
   }
 };

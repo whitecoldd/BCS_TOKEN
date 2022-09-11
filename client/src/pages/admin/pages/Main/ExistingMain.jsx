@@ -17,7 +17,7 @@ export default function MyMain() {
   const dispatch = useDispatch();
   useEffect(() => {
     getMain(dispatch);
-  }, []);
+  }, [dispatch]);
 
   //getHeader(dispatch);
   const productId = useSelector((state) => state.main.mains[0]._id);

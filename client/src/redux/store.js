@@ -9,6 +9,9 @@ import buyFieldReducer from "./buyFieldRedux";
 import metaBoxReducer from "./metaBoxRedux";
 import nftReducer from "./NFTRedux";
 import roadMapReducer from "./roadMapRedux";
+import boxReducer from "./boxRedux";
+import virtualBoxReducer from "./virtualBoxRedux";
+import wiiReducer from "./wiiRedux";
 import {
   persistStore,
   persistReducer,
@@ -38,6 +41,9 @@ const rootReducer = combineReducers({
   metaBox: metaBoxReducer,
   nft: nftReducer,
   roadMap: roadMapReducer,
+  box: boxReducer,
+  virtualBox: virtualBoxReducer,
+  wii: wiiReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

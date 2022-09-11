@@ -17,7 +17,7 @@ export default function RoadMap() {
   const dispatch = useDispatch();
   useEffect(() => {
     getRoadMap(dispatch);
-  }, []);
+  }, [dispatch]);
 
   //getHeader(dispatch);
   const productId = useSelector((state) => state.roadMap.roadMaps[0]._id);

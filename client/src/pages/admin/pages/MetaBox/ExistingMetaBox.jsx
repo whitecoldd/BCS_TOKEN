@@ -17,7 +17,7 @@ export default function MyMetaBox() {
   const dispatch = useDispatch();
   useEffect(() => {
     getMetaBox(dispatch);
-  }, []);
+  }, [dispatch]);
 
   //getHeader(dispatch);
   const productId = useSelector((state) => state.metaBox.metaBoxes[0]._id);

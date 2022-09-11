@@ -17,7 +17,7 @@ export default function Article() {
   const dispatch = useDispatch();
   useEffect(() => {
     getArticle(dispatch);
-  }, [])
+  }, [dispatch])
   
   //getHeader(dispatch);
   const productId = useSelector((state) => state.article.articles[0]._id);
@@ -84,7 +84,7 @@ export default function Article() {
     <div className="product">
       <div className="productTopRight">
         <div className="productInfoTop">
-          <img src={product.headerIcon} alt="" className="productInfoImg" />
+          <img src={product.icon} alt="" className="productInfoImg" />
         </div>
         <div className="productInfoBottom">
           <div className="productInfoItem">

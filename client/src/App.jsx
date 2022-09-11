@@ -25,6 +25,13 @@ import MyNFT from "./pages/admin/pages/NFT/ExistingNFT";
 import NewNFT from "./pages/admin/pages/NFT/NFT";
 import RoadMap from "./pages/admin/pages/RoadMap/ExistingRoadMap";
 import NewRoadMap from "./pages/admin/pages/RoadMap/RoadMap";
+import BoxList from "./pages/admin/pages/Box/BoxList";
+import NewBox from "./pages/admin/pages/Box/Box";
+import MyBox from "./pages/admin/pages/Box/ExistingBox";
+import MyVirtualBox from "./pages/admin/pages/VirtualBox/ExistingVirtualBox";
+import NewVirtualBox from "./pages/admin/pages/VirtualBox/VirtualBox";
+import MyWii from "./pages/admin/pages/WhatIsInside/ExistingWii";
+import NewWii from "./pages/admin/pages/WhatIsInside/WhatIsInside";
 
 function App() {
   let [showAlert, setshowAlert] = useState(false);
@@ -38,6 +45,8 @@ function App() {
   const meta = useSelector((state) => state.metaBox.metaBoxes);
   const nft = useSelector((state) => state.nft.nfts);
   const road = useSelector((state) => state.roadMap.roadMaps);
+  const virt = useSelector((state) => state.virtualBox.virtualBoxes);
+  const wii = useSelector((state) => state.wii.wiis);
   return (
     <div className="App">
       <BrowserRouter>
@@ -93,6 +102,20 @@ function App() {
                 ) : (
                   <Route path="/admin/road" element={<NewRoadMap />} />
                 )}
+                {virt ? (
+                  <Route path="/admin/virtbox" element={<MyVirtualBox />} />
+                ) : (
+                  <Route path="/admin/virtbox" element={<NewVirtualBox />} />
+                )}
+                {wii ? (
+                  <Route path="/admin/wii" element={<MyWii />} />
+                ) : (
+                  <Route path="/admin/wii" element={<NewWii />} />
+                )}
+                <Route path="/admin/boxlist" element={<BoxList />}/>
+                <Route path="/admin/newbox" element={<NewBox />}/>
+                <Route path="/admin/box/:id" element={<MyBox />}/>
+                
               </Route>
             </>
           )}

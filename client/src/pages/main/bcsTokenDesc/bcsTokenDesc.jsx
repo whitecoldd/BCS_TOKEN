@@ -19,19 +19,32 @@ export default function BcsTokenDesc() {
     };
     getItems();
   }, []);
+  const [Box, setBox] = useState([]);
+  useEffect(() => {
+    const getItems = async () => {
+      try {
+        const res = await publicRequest.get("/api/box/find");
+        setBox(res.data);
+      } catch {}
+    };
+    getItems();
+  }, []);
   return (
     <div className="BCSTokenDesc" id="stacking_id">
       <div className="BCSTokenDesc_items">
-        <div className="BCSTokenDesc_item">
-          <div className="BCSTokenDesc_iconTitle">
-            <div className="BCSTokenDesc_icon">
-              <img src={nft_icon} alt="" />
+        {Box.map((Box) => (
+          <div className="BCSTokenDesc_item">
+            <div className="BCSTokenDesc_iconTitle">
+              <div className="BCSTokenDesc_icon">
+                <img src={Box.icon} alt="" />
+              </div>
+              <h4>{Box.header}</h4>
             </div>
-            <h4>NFT</h4>
+            <p>{Box.text}</p>
           </div>
-          <p>Participate in alternative token earnings by playing lotteries</p>
-        </div>
-        <div className="BCSTokenDesc_item">
+        ))}
+
+        {/* <div className="BCSTokenDesc_item">
           <div className="BCSTokenDesc_iconTitle">
             <div className="BCSTokenDesc_icon">
               <img src={metaMiner_icon} alt="" />
@@ -57,24 +70,27 @@ export default function BcsTokenDesc() {
             <h4>BICAS</h4>
           </div>
           <p>Choose your holding period and start to earn tokens</p>
-        </div>
+        </div> */}
       </div>
 
       <div className="simple_slider BCSTokenDesc_mobile">
         <div className="galary_trackImages_wrapper">
           <div className="galary_trackImages">
-            <div className="BCSTokenDesc_item">
-              <div className="BCSTokenDesc_iconTitle">
-                <div className="BCSTokenDesc_icon">
-                  <img src={nft_icon} alt="" />
+            {Box.map((Box) => (
+              <div className="BCSTokenDesc_item">
+                <div className="BCSTokenDesc_iconTitle">
+                  <div className="BCSTokenDesc_icon">
+                    <img src={Box.icon} alt="" />
+                  </div>
+                  <h4>{Box.header}</h4>
                 </div>
-                <h4>NFT</h4>
+                <p>
+                {Box.text}
+                </p>
               </div>
-              <p>
-                Participate in alternative token earnings by playing lotteries
-              </p>
-            </div>
-            <div className="BCSTokenDesc_item">
+            ))}
+
+            {/* <div className="BCSTokenDesc_item">
               <div className="BCSTokenDesc_iconTitle">
                 <div className="BCSTokenDesc_icon">
                   <img src={metaMiner_icon} alt="" />
@@ -100,7 +116,7 @@ export default function BcsTokenDesc() {
                 <h4>BICAS</h4>
               </div>
               <p>Choose your holding period and start to earn tokens</p>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -118,9 +134,9 @@ export default function BcsTokenDesc() {
           <h3 className="BCSTokenDesc_title">{items[0]?.header}</h3>
           <div className="BCSTokenDesc_text">
             <ul>
-                {items[0]?.text.map((text)=>(
-                    <li>{text}</li>
-                ))}
+              {items[0]?.text.map((text) => (
+                <li>{text}</li>
+              ))}
             </ul>
           </div>
         </div>

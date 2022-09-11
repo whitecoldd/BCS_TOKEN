@@ -3,6 +3,7 @@ const VirtualBoxSchema = new mongoose.Schema(
   {
     header: { type: String, required: true },
     text: { type: Array, required: true },
+    icon: { type: String, required: true },
   },
   { timestamps: true }
 );

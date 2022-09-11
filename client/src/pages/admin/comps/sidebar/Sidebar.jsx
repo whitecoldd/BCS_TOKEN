@@ -57,6 +57,12 @@ const Sidebar = ({pathname, url}) => {
               <span>Main</span>
             </li>
           </Link>
+          <Link to={`boxlist`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Boxes</span>
+            </li>
+          </Link>
           <Link to={`stats`} style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
@@ -91,6 +97,18 @@ const Sidebar = ({pathname, url}) => {
             <li>
               <StoreIcon className="icon" />
               <span>NFT</span>
+            </li>
+          </Link>
+          <Link to={`virtbox`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>VirtualBoxTop</span>
+            </li>
+          </Link>
+          <Link to={`wii`} style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>VirtualBoxBottom</span>
             </li>
           </Link>
           <p className="title">USEFUL</p>

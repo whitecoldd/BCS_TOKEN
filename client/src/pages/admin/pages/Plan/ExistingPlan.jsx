@@ -17,7 +17,7 @@ export default function MyPlan() {
   const dispatch = useDispatch();
   useEffect(() => {
     getPlan(dispatch);
-  }, []);
+  }, [dispatch]);
 
   //getLine 1 text1(dispatch);
   const productId = useSelector((state) => state.plan.plans[0]._id);

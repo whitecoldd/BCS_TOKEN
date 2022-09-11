@@ -17,7 +17,7 @@ export default function Header() {
   const dispatch = useDispatch();
   useEffect(() => {
     getHeader(dispatch);
-  }, [])
+  }, [dispatch])
   
   //getHeader(dispatch);
   const productId = useSelector((state) => state.header.headers[0]._id);

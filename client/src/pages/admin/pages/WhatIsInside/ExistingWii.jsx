@@ -3,7 +3,7 @@ import "../../styles1.css";
 import PublishIcon from "@mui/icons-material/Publish";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { getNFT, updateNFT } from "../../../../redux/apiCalls";
+import { getWii, updateWii } from "../../../../redux/apiCalls";
 import { ToastContainer, toast } from "react-toastify";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import app from "../../../../firebase";
@@ -13,16 +13,18 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-export default function MyNFT() {
+export default function MyWii() {
   const dispatch = useDispatch();
   useEffect(() => {
-    getNFT(dispatch);
+    getWii(dispatch);
   }, [dispatch]);
 
   //getLine 1 text1(dispatch);
-  const productId = useSelector((state) => state.nft.nfts[0]._id);
+  const productId = useSelector(
+    (state) => state.wii.wiis[0]._id
+  );
 
-  const product = useSelector((state) => state.nft.nfts[0]);
+  const product = useSelector((state) => state.wii.wiis[0]);
   if (typeof window !== "undefined") {
     injectStyle();
   }
@@ -71,9 +73,9 @@ export default function MyNFT() {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log({ ...inputs, icon: downloadURL, arr: arr });
-          const product = { ...inputs, icon: downloadURL, arr: arr };
-          updateNFT(productId, product, dispatch);
+          console.log({ ...inputs, icon: downloadURL });
+          const product = { ...inputs, icon: downloadURL };
+          updateWii(productId, product, dispatch);
           toast("Product updated!");
         });
       }
@@ -93,26 +95,38 @@ export default function MyNFT() {
           </div>
           <div className="productInfoItem">
             <span className="productInfoKey">header</span>
-            <span className="productInfoValue">{product.header}</span>
+            <span className="productInfoValue">{product.header} {product.headerp}</span>
           </div>
           <div className="productInfoItem">
-            <span className="productInfoKey">header right</span>
-            <span className="productInfoValue">{product.header1} {product.header1p}</span>
+            <span className="productInfoKey">text 1</span>
+            <span className="productInfoValue">{product.text1}</span>
           </div>
           <div className="productInfoItem">
-            <span className="productInfoKey">text</span>
-            <span className="productInfoValue">{product.text}</span>
+            <span className="productInfoKey">text 2</span>
+            <span className="productInfoValue">{product.text2}</span>
           </div>
           <div className="productInfoItem">
-            <span className="productInfoKey">list</span>
-            <span className="productInfoValue">{product.arr}</span>
+            <span className="productInfoKey">text 3</span>
+            <span className="productInfoValue">{product.text3}</span>
+          </div>
+          <div className="productInfoItem">
+            <span className="productInfoKey">text 4</span>
+            <span className="productInfoValue">{product.text4}</span>
+          </div>
+          <div className="productInfoItem">
+            <span className="productInfoKey">text 5</span>
+            <span className="productInfoValue">{product.text5}</span>
+          </div>
+          <div className="productInfoItem">
+            <span className="productInfoKey">text 6</span>
+            <span className="productInfoValue">{product.text6}</span>
           </div>
         </div>
       </div>
 
       <div className="productBottom">
         <div className="productTitleContainer">
-          <h1 className="productTitle">NFT</h1>
+          <h1 className="productTitle">VirtualBox Bottom</h1>
         </div>
         <form className="productForm">
           <div className="addProductItem">
@@ -133,43 +147,68 @@ export default function MyNFT() {
             />
           </div>
           <div className="addProductItem">
-            <label>Text</label>
+            <label>Header</label>
             <input
-              name="text"
+              name="headerp"
               type="text"
               placeholder="text"
               onChange={handleChange}
             />
           </div>
           <div className="addProductItem">
-            <label>Header 2</label>
+            <label>Text 1</label>
             <input
-              name="header1"
+              name="text1"
               type="text"
               placeholder="text"
               onChange={handleChange}
             />
           </div>
           <div className="addProductItem">
-            <label>Header 2 Purple</label>
+            <label>Text 2</label>
             <input
-              name="header1p"
+              name="text2"
               type="text"
               placeholder="text"
               onChange={handleChange}
             />
           </div>
           <div className="addProductItem">
-            <label>List</label>
-            <textarea
-              name="text"
+            <label>Text 3</label>
+            <input
+              name="text3"
               type="text"
-              placeholder="text...text"
-              onChange={handleArr}
+              placeholder="text"
+              onChange={handleChange}
             />
           </div>
-        
-
+          <div className="addProductItem">
+            <label>Text 4</label>
+            <input
+              name="text4"
+              type="text"
+              placeholder="text"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="addProductItem">
+            <label>Text 5</label>
+            <input
+              name="text5"
+              type="text"
+              placeholder="text"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="addProductItem">
+            <label>Text 6</label>
+            <input
+              name="text6"
+              type="text"
+              placeholder="text"
+              onChange={handleChange}
+            />
+          </div>
           <div className="productFormRight">
             <button onClick={handleClick} className="productButton">
               Update

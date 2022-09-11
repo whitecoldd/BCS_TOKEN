@@ -3,7 +3,7 @@ import "../../styles1.css";
 import PublishIcon from "@mui/icons-material/Publish";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { getNFT, updateNFT } from "../../../../redux/apiCalls";
+import { getVirtualBox, updateVirtualBox } from "../../../../redux/apiCalls";
 import { ToastContainer, toast } from "react-toastify";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import app from "../../../../firebase";
@@ -13,16 +13,18 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-export default function MyNFT() {
+export default function MyVirtualBox() {
   const dispatch = useDispatch();
   useEffect(() => {
-    getNFT(dispatch);
+    getVirtualBox(dispatch);
   }, [dispatch]);
 
   //getLine 1 text1(dispatch);
-  const productId = useSelector((state) => state.nft.nfts[0]._id);
+  const productId = useSelector(
+    (state) => state.virtualBox.virtualBoxes[0]._id
+  );
 
-  const product = useSelector((state) => state.nft.nfts[0]);
+  const product = useSelector((state) => state.virtualBox.virtualBoxes[0]);
   if (typeof window !== "undefined") {
     injectStyle();
   }
@@ -71,9 +73,9 @@ export default function MyNFT() {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log({ ...inputs, icon: downloadURL, arr: arr });
-          const product = { ...inputs, icon: downloadURL, arr: arr };
-          updateNFT(productId, product, dispatch);
+          console.log({ ...inputs, icon: downloadURL });
+          const product = { ...inputs, icon: downloadURL };
+          updateVirtualBox(productId, product, dispatch);
           toast("Product updated!");
         });
       }
@@ -96,23 +98,15 @@ export default function MyNFT() {
             <span className="productInfoValue">{product.header}</span>
           </div>
           <div className="productInfoItem">
-            <span className="productInfoKey">header right</span>
-            <span className="productInfoValue">{product.header1} {product.header1p}</span>
-          </div>
-          <div className="productInfoItem">
             <span className="productInfoKey">text</span>
             <span className="productInfoValue">{product.text}</span>
-          </div>
-          <div className="productInfoItem">
-            <span className="productInfoKey">list</span>
-            <span className="productInfoValue">{product.arr}</span>
           </div>
         </div>
       </div>
 
       <div className="productBottom">
         <div className="productTitleContainer">
-          <h1 className="productTitle">NFT</h1>
+          <h1 className="productTitle">VirtualBox</h1>
         </div>
         <form className="productForm">
           <div className="addProductItem">
@@ -141,35 +135,6 @@ export default function MyNFT() {
               onChange={handleChange}
             />
           </div>
-          <div className="addProductItem">
-            <label>Header 2</label>
-            <input
-              name="header1"
-              type="text"
-              placeholder="text"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="addProductItem">
-            <label>Header 2 Purple</label>
-            <input
-              name="header1p"
-              type="text"
-              placeholder="text"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="addProductItem">
-            <label>List</label>
-            <textarea
-              name="text"
-              type="text"
-              placeholder="text...text"
-              onChange={handleArr}
-            />
-          </div>
-        
-
           <div className="productFormRight">
             <button onClick={handleClick} className="productButton">
               Update

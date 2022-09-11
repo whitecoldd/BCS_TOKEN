@@ -17,7 +17,7 @@ export default function BuyField() {
   const dispatch = useDispatch();
   useEffect(() => {
     getBuyField(dispatch);
-  }, []);
+  }, [dispatch]);
 
   //getHeader(dispatch);
   const productId = useSelector((state) => state.buyField.buyFields[0]._id);
