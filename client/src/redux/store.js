@@ -12,6 +12,8 @@ import roadMapReducer from "./roadMapRedux";
 import boxReducer from "./boxRedux";
 import virtualBoxReducer from "./virtualBoxRedux";
 import wiiReducer from "./wiiRedux";
+import contractReducer from "./contractRedux";
+import saleReducer from "./saleRedux";
 import {
   persistStore,
   persistReducer,
@@ -44,6 +46,8 @@ const rootReducer = combineReducers({
   box: boxReducer,
   virtualBox: virtualBoxReducer,
   wii: wiiReducer,
+  contract: contractReducer,
+  sale: saleReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

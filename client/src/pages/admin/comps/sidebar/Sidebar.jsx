@@ -111,11 +111,19 @@ const Sidebar = ({pathname, url}) => {
               <span>VirtualBoxBottom</span>
             </li>
           </Link>
-          <p className="title">USEFUL</p>
-          <li>
-            <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
+          <p className="title">Sale</p>
+          <Link to={`contract`} style={{ textDecoration: "none" }}>
+            <li>
+              <InsertChartIcon className="icon" />
+              <span>Contract Addresses</span>
+            </li>
+          </Link>
+          <Link to={`sale`} style={{ textDecoration: "none" }}>
+            <li>
+              <InsertChartIcon className="icon" />
+              <span>Sale Page Content</span>
+            </li>
+          </Link>
           <li>
             <NotificationsNoneIcon className="icon" />
             <span>Notifications</span>

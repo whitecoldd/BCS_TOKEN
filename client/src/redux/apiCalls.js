@@ -173,6 +173,34 @@ import {
   addWiiStart,
   addWiiSuccess,
 } from "./wiiRedux";
+import {
+  getContractFailure,
+  getContractStart,
+  getContractSuccess,
+  deleteContractFailure,
+  deleteContractStart,
+  deleteContractSuccess,
+  updateContractFailure,
+  updateContractStart,
+  updateContractSuccess,
+  addContractFailure,
+  addContractStart,
+  addContractSuccess,
+} from "./contractRedux";
+import {
+  getSaleFailure,
+  getSaleStart,
+  getSaleSuccess,
+  deleteSaleFailure,
+  deleteSaleStart,
+  deleteSaleSuccess,
+  updateSaleFailure,
+  updateSaleStart,
+  updateSaleSuccess,
+  addSaleFailure,
+  addSaleStart,
+  addSaleSuccess,
+} from "./saleRedux";
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -646,5 +674,81 @@ export const addWii = async (wii, dispatch) => {
     dispatch(addWiiSuccess(res.data));
   } catch (err) {
     dispatch(addWiiFailure());
+  }
+};
+export const getContract = async (dispatch) => {
+  dispatch(getContractStart());
+  try {
+    const res = await publicRequest.get("api/contract/find");
+    dispatch(getContractSuccess(res.data));
+  } catch (err) {
+    dispatch(getContractFailure());
+  }
+};
+
+export const deleteContract = async (id, dispatch) => {
+  dispatch(deleteContractStart());
+  try {
+    const res = await userRequest.delete(`api/contract/${id}`);
+    dispatch(deleteContractSuccess(id));
+  } catch (err) {
+    dispatch(deleteContractFailure());
+  }
+};
+
+export const updateContract = async (id, contract, dispatch) => {
+  dispatch(updateContractStart());
+  try {
+    const res = await userRequest.put(`api/contract/${id}`, contract);
+    dispatch(updateContractSuccess({ id, contract }));
+  } catch (err) {
+    dispatch(updateContractFailure());
+  }
+};
+export const addContract = async (contract, dispatch) => {
+  dispatch(addContractStart());
+  try {
+    const res = await userRequest.post(`api/contract`, contract);
+    dispatch(addContractSuccess(res.data));
+  } catch (err) {
+    dispatch(addContractFailure());
+  }
+};
+export const getSale = async (dispatch) => {
+  dispatch(getSaleStart());
+  try {
+    const res = await publicRequest.get("api/sale/find");
+    dispatch(getSaleSuccess(res.data));
+  } catch (err) {
+    dispatch(getSaleFailure());
+  }
+};
+
+export const deleteSale = async (id, dispatch) => {
+  dispatch(deleteSaleStart());
+  try {
+    const res = await userRequest.delete(`api/sale/${id}`);
+    dispatch(deleteSaleSuccess(id));
+  } catch (err) {
+    dispatch(deleteSaleFailure());
+  }
+};
+
+export const updateSale = async (id, sale, dispatch) => {
+  dispatch(updateSaleStart());
+  try {
+    const res = await userRequest.put(`api/sale/${id}`, sale);
+    dispatch(updateSaleSuccess({ id, sale }));
+  } catch (err) {
+    dispatch(updateSaleFailure());
+  }
+};
+export const addSale = async (sale, dispatch) => {
+  dispatch(addSaleStart());
+  try {
+    const res = await userRequest.post(`api/sale`, sale);
+    dispatch(addSaleSuccess(res.data));
+  } catch (err) {
+    dispatch(addSaleFailure());
   }
 };

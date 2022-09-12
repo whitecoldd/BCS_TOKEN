@@ -32,6 +32,10 @@ import MyVirtualBox from "./pages/admin/pages/VirtualBox/ExistingVirtualBox";
 import NewVirtualBox from "./pages/admin/pages/VirtualBox/VirtualBox";
 import MyWii from "./pages/admin/pages/WhatIsInside/ExistingWii";
 import NewWii from "./pages/admin/pages/WhatIsInside/WhatIsInside";
+import NewContract from "./pages/admin/pages/Contract/Contract";
+import Contract from "./pages/admin/pages/Contract/ExistingContract";
+import MySale from "./pages/admin/pages/Sale/ExistingSale";
+import NewSale from "./pages/admin/pages/Sale/Sale";
 
 function App() {
   let [showAlert, setshowAlert] = useState(false);
@@ -47,6 +51,8 @@ function App() {
   const road = useSelector((state) => state.roadMap.roadMaps);
   const virt = useSelector((state) => state.virtualBox.virtualBoxes);
   const wii = useSelector((state) => state.wii.wiis);
+  const contract = useSelector((state) => state.contract.contracts);
+  const sale = useSelector((state) => state.sale.sales);
   return (
     <div className="App">
       <BrowserRouter>
@@ -111,6 +117,16 @@ function App() {
                   <Route path="/admin/wii" element={<MyWii />} />
                 ) : (
                   <Route path="/admin/wii" element={<NewWii />} />
+                )}
+                {contract ? (
+                  <Route path="/admin/contract" element={<Contract />} />
+                ) : (
+                  <Route path="/admin/contract" element={<NewContract />} />
+                )}
+                {sale ? (
+                  <Route path="/admin/sale" element={<MySale />} />
+                ) : (
+                  <Route path="/admin/sale" element={<NewSale />} />
                 )}
                 <Route path="/admin/boxlist" element={<BoxList />}/>
                 <Route path="/admin/newbox" element={<NewBox />}/>
